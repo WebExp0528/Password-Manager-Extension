@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "outDir": ".build",
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "lib": ["es6", "dom"]
+    },
+    "include": ["."],
+    "exclude": [".idea", ".serverless", ".git", "node_modules", "dist"]
+}
