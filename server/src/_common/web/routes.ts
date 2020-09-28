@@ -20,7 +20,7 @@ app.use(
 app.use(
     bodyParser.json({
         verify: function (req, res, buf) {
-            var url = req["originalUrl"];
+            let url = req["originalUrl"];
             if (url.startsWith("/api/manager/stripe")) {
                 req["rawBody"] = buf.toString();
             }

@@ -18,10 +18,8 @@ import { spacing } from "@material-ui/system";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import MuiButton from "@material-ui/core/Button";
 
-import DraftsIcon from "@material-ui/icons/Drafts";
-import SendIcon from "@material-ui/icons/Send";
-import PriorityHighIcon from "@material-ui/icons/PriorityHigh";
 import SearchIcon from "@material-ui/icons/Search";
+import MainMenu from "popup/data/main_menu.js";
 
 import cls from "./page-home.module.scss";
 
@@ -99,56 +97,37 @@ export const PageHome = props => {
                 </div>
                 <Paper>
                     <MenuList>
-                        <MenuItem>
-                            <ListItemIcon>
-                                <SendIcon fontSize="small" />
-                            </ListItemIcon>
-                            <Typography variant="inherit">
-                                Open my vault
-                            </Typography>
-                        </MenuItem>
-                        <MenuItem>
-                            <ListItemIcon>
-                                <PriorityHighIcon fontSize="small" />
-                            </ListItemIcon>
-                            <Typography variant="inherit">
-                                Recently Used
-                            </Typography>
-                        </MenuItem>
-                        <MenuItem>
-                            <ListItemIcon>
-                                <DraftsIcon fontSize="small" />
-                            </ListItemIcon>
-                            <Typography variant="inherit">All Items</Typography>
-                        </MenuItem>
-                        <MenuItem>
-                            <ListItemIcon>
-                                <DraftsIcon fontSize="small" />
-                            </ListItemIcon>
-                            <Typography variant="inherit">Add Item</Typography>
-                        </MenuItem>
-                        <MenuItem>
-                            <ListItemIcon>
-                                <DraftsIcon fontSize="small" />
-                            </ListItemIcon>
-                            <Typography variant="inherit">
-                                Generate Secure Password
-                            </Typography>
-                        </MenuItem>
-                        <MenuItem>
-                            <ListItemIcon>
-                                <DraftsIcon fontSize="small" />
-                            </ListItemIcon>
-                            <Typography variant="inherit">
-                                Account Options
-                            </Typography>
-                        </MenuItem>
-                        <MenuItem>
-                            <ListItemIcon>
-                                <DraftsIcon fontSize="small" />
-                            </ListItemIcon>
-                            <Typography variant="inherit">Logout</Typography>
-                        </MenuItem>
+                        {MainMenu.map(section => {
+                            return (
+                                <>
+                                    {section.map(menu => {
+                                        return menu.to ? (
+                                            <MenuItem to={menu.to}>
+                                                <ListItemIcon>
+                                                    {menu.icon}
+                                                </ListItemIcon>
+                                                <Typography variant="inherit">
+                                                    {menu.label}
+                                                </Typography>
+                                            </MenuItem>
+                                        ) : (
+                                            <MenuItem
+                                                component="a"
+                                                href={menu.href}
+                                            >
+                                                <ListItemIcon>
+                                                    {menu.icon}
+                                                </ListItemIcon>
+                                                <Typography variant="inherit">
+                                                    {menu.label}
+                                                </Typography>
+                                            </MenuItem>
+                                        );
+                                    })}
+                                    <Divider />
+                                </>
+                            );
+                        })}
                     </MenuList>
                 </Paper>
             </Box>

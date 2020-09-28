@@ -7,7 +7,7 @@ const Pages = () => (
     <Switch>
         <Route component={Auth} path="/auth" />
         <Route component={Dashboard} path="/app" />
-        <Redirect to="/app" />
+        <Redirect to="/auth" />
     </Switch>
 );
 
