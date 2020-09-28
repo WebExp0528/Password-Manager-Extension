@@ -1,0 +1,14 @@
+{
+    "appName": {
+        "message": "Password Manager Extension",
+        "description": "The name of the react extension."
+    },
+    "appDescription": {
+        "message": "Extension for managing passwords",
+        "description": "The description of the extension."
+    },
+    "btnTooltip": {
+        "message": "Password Manager",
+        "description": "Tooltip for the button."
+    }
+}
