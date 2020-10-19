@@ -31,7 +31,7 @@ class Main extends React.Component {
 
         //Set up extension root
         const app = document.createElement("div");
-        app.id = "pass-mngmt-root";
+        app.id = "extension-root";
         document.body.appendChild(app);
         ReactDOM.render(<Main />, app);
     } catch (err) {
